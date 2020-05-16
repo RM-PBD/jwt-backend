@@ -18,6 +18,14 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  private
+  def respond_with(resource, _opts = {})
+      render json: resource
+    end
+def respond_to_on_destroy
+      head :ok
+    end
+end
 
   # protected
 
@@ -25,6 +33,5 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-end
 end
 end
