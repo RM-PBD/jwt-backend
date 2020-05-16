@@ -1,8 +1,9 @@
 # frozen_string_literal: true
-
+module Api
+  module V1
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+   respond_to :json
   # GET /resource/sign_in
   # def new
   #   super
@@ -24,4 +25,6 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+end
+end
 end

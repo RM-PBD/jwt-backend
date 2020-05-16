@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   namespace :api do
   namespace :v1 do
-  resources :users, only: [:create]
+  devise_for :users,
+                path: '',
+                path_names: {
+                  sign_in: 'login',
+                  sign_out: 'logout',
+                  registration: 'signup'
+                },
+                controllers: {
+                  sessions: 'sessions',
+                  registrations: 'registrations'
+                }
 
-  post "/login", to: "auth#login"
-  get "/auto_login", to: "auth#auto_login"
-  get "/user_is_authed", to: "auth#user_is_authed"
+  # post "/login", to: "auth#login"
+  # get "/auto_login", to: "auth#auto_login"
+  # get "/user_is_authed", to: "auth#user_is_authed"
 end
 end
 end
