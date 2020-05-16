@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/signup", to: "registrations#new"
   get "/auto_login", to: "sessions#new"
+  get '/forgot_password', to: 'passwords#new'
+  get '/reset_password', to: 'passwords#edit'
 end
   # post "/login", to: "auth#login"
   # get "/auto_login", to: "auth#auto_login"
